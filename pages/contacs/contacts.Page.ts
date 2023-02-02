@@ -1,8 +1,10 @@
 import {expect, Locator, Page} from "@playwright/test";
+import { faker } from '@faker-js/faker';
 
 
 export class ContactsPage {
     private readonly page:Page;
+    private readonly randomEmail: Locator
     private readonly contacts: Locator
     private readonly addNewContacts: Locator
     private readonly account: Locator
@@ -62,6 +64,7 @@ export class ContactsPage {
         this.aboutNewContact = page.getByPlaceholder('About')
         this.cancelAddNewContact = page.locator('.btn.btn-secondary')
         this.saveNewContact = page.locator('.btn.btn-primary')
+        const randomEmail = faker.internet.email();
 
         this.searchFieldEN = page.getByPlaceholder('Search...')
         this.contactsEN = page.getByText('Contacts')
