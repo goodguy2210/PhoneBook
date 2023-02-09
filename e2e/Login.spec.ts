@@ -5,8 +5,7 @@ test('Login', async ({ page }) => {
 
     await test.step('Fill correct email and password' , async () =>{
         const loginPage = new LoginPage(page)
-        await loginPage.login('test@gmail.com','test@gmail.com')
-        await loginPage.checkAlertsAboutPasswordAndEmail
+        await loginPage.checkAlertsWithWrongData
     })
     await test.step('Fill wrong email and password', async () =>{
         const loginPage = new LoginPage(page)

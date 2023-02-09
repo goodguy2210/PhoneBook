@@ -15,13 +15,6 @@ export class LoginPage {
     private readonly registerPassword: Locator
     private readonly confirmPassword: Locator
     private readonly sumbitRegistration: Locator
-    private readonly languageDropdown: Locator
-    private readonly englishLanguage: Locator
-    private readonly russianLanguage: Locator
-    private readonly germanLanguage: Locator
-    private readonly ukranieLanguage: Locator
-    private readonly searchButton: Locator
-    private readonly noResultsAlert: Locator
 
     constructor(page:Page) {
         this.page = page
@@ -38,16 +31,10 @@ export class LoginPage {
         this.registerEmail = page.getByPlaceholder('Password')
         this.confirmPassword = page.getByPlaceholder('Confirm Password')
         this.sumbitRegistration = page.getByRole("button",{name: 'submit'})
-        this.languageDropdown = page.locator('#langSelect')
-        this.englishLanguage = page.getByText('English')
-        this.englishLanguage = page.getByText('Russian')
-        this.englishLanguage = page.getByText('German')
-        this.englishLanguage = page.getByText('Ukraine')
      //   this.searchButton = page.locator[#search-form-contact]
      //   this.noResultsAlert = page.getByRole('alert', {type: string})sdsdfsdf
-
     }
-    async checkAlertsAboutPasswordAndEmail () {
+    async checkAlertsWithWrongData () {
         await expect.soft(this.wrongEmail).not.toBeVisible()
         await expect.soft(this.wrongPassword).not.toBeVisible()
         await expect.soft(this.noPassword).not.toBeVisible()

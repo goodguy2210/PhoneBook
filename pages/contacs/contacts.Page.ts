@@ -51,16 +51,16 @@ export class ContactsPage {
         // Body
         this.searchField = page.locator['#input-search-contact']
         this.myProfile = page.locator('..list-group-item.list-group-item-action').first()
-        this.deleteContact = page.locator['//div[\'bg-warning\']//div//div//div[\'mr-2\']//button[2]'].first()
+        this.deleteContact = page.locator['/assets/icons/trash.svg'].first()
         this.contact = page.locator('//div[\'justify-content-between\'][3]')
         this.deleteAccountAlert = page.locator('.alert.text-center')
-        this.secondDeleteButton = page.locator['//div//div//div//div//div[\'#sumbit-remove\']']
+        this.secondDeleteButton = page.locator('#submit-remove')
         this.deleteCheckbox =  page.locator('#check-box-remove-contact')
         this.cancelDeleteContact = page.locator('#cancel-remove-contact')
-        this.addNewContactAlert = page.locator('//div//div//div//div[\'ng-pristine ng-invalid ng-touched\'][2]')
-        this.nameOfNewContact = page.locator('//div/div//div//div//input[\'ng-touched\']')
-        this.errorFirstName = page.locator('//div/div//div//p//ngb-alert[\'alert-danger\']').first()
-        this.surnameOfNewContact = page.locator('##form-lastName')
+        this.addNewContactAlert = page.locator('#add-contact-modal')
+        this.nameOfNewContact = page.locator('#form-name')
+        this.errorFirstName = page.locator('#form-error-firstName').first()
+        this.surnameOfNewContact = page.locator('#form-lastName')
         this.aboutNewContact = page.getByPlaceholder('About')
         this.cancelAddNewContact = page.locator('.btn.btn-secondary')
         this.saveNewContact = page.locator('.btn.btn-primary')
@@ -100,7 +100,7 @@ export class ContactsPage {
         await expect.soft(this.searchFieldUKR).toBeVisible()
         await expect.soft(this.contactsUKR).toBeVisible()
     }
-    async fillNon_existentContact(){
+    async fillNewContact(){
         await this.searchFieldEN.fill('dsfg')
         await expect.soft(this.noResults).toBeVisible()
     }
